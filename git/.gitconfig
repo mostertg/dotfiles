@@ -1,0 +1,7 @@
+[user]
+	name = Giovanni Mostert
+	email = giovanni.mostert@gmail.com
+[core]
+	editor = vi
+[color]
+	ui = auto
