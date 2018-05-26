@@ -23,6 +23,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'honza/vim-snippets'
 "Plug 'natebosch/vim-lsc'
 Plug 'Raimondi/delimitMate'
+Plug 'jmcantrell/vim-virtualenv'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -40,7 +41,6 @@ Plug 'vim-pandoc/vim-pandoc-after'
 Plug 'w0rp/ale'
 Plug 'wincent/terminus'
 " <- Unused, Hidden Plugins -> {{{1
-"Plug 'jmcantrell/vim-virtualenv'
 "Plug 'junegunn/fzf.vim'
 "Plug 'sheerun/vim-polyglot'
 "Plug 'rstacruz/sparkup'
@@ -465,6 +465,11 @@ autocmd! User GoyoLeave Limelight!
 "let g:lsc_server_commands = {'python': 'python_language_server'}
 "let g:lsc_auto_map = v:true
 "let g:lsc_trace_level = 'verbose'
+
+" === Jedi completions ===
+let g:jedi#auto_initialization=1
+let g:jedi#auto_vim_configuration=1
+let g:jedi#force_py_version = 3
 
 " === Other ===
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''

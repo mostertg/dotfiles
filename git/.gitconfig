@@ -3,5 +3,6 @@
 	email = giovanni.mostert@gmail.com
 [core]
 	editor = vi
+	excludesfile = /Users/giovanni/.dotfiles/git/.gitignore_global
 [color]
 	ui = auto

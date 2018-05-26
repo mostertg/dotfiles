@@ -24,7 +24,6 @@
 \usepackage{titlesec}
 \usepackage{longtable,booktabs}
 \usepackage[export]{adjustbox}
-\usepackage{float}
 \usepackage{graphics}
 \graphicspath{{images/}}
 %\graphicspath{{../assets/}}
@@ -32,6 +31,8 @@
 \usepackage[normalem]{ulem}
 \usepackage{vmargin}
 \usepackage{fancyhdr}
+\usepackage{setspace}
+\doublespacing
 \usepackage[setpagesize=false,
             unicode=false,
             colorlinks=true,
@@ -72,13 +73,18 @@ $highlighting-macros$
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
 
 % Make links footnotes instead of hotlinks
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
 % Use less whitespace on chapter pages
-\renewcommand*{\chapterheadstartvskip}{\vspace*{0cm}}
-\renewcommand*{\chapterheadendvskip}{\vspace{0.25cm}}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0.65cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{0.10cm}}
 
 % Avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
@@ -90,20 +96,6 @@ $highlighting-macros$
 \setlength{\parskip}{1em plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \renewcommand{\baselinestretch}{1.5}
-
-% Fix placement of images
-\let\origfigure\figure
-\let\endorigfigure\endfigure
-\renewenvironment{figure}[1][2] {
-        \expandafter\origfigure\expandafter[H]
-} {
-        \endorigfigure
-}
-
-%\KOMAoptions{
-   %listof=totoc,
-   %listof=leveldown,
-%}
 
 
 % -----------------
@@ -122,7 +114,6 @@ $highlighting-macros$
 $body$
 
 \newpage
-%\bibliography{references}
-\bibliography{refs}
+\bibliography{references}
 
 \end{document}
