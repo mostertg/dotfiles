@@ -19,16 +19,17 @@ Plug 'chriskempson/base16-vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'docunext/closetag.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'honza/vim-snippets'
 "Plug 'natebosch/vim-lsc'
 Plug 'Raimondi/delimitMate'
-Plug 'jmcantrell/vim-virtualenv'
+"Plug 'jmcantrell/vim-virtualenv'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -132,15 +133,18 @@ let g:airline_symbols.notexists = ' ∄'
 
 
 " = ALE (Asynchronous Lint Engine) =
+"let g:ale_linters = {
+        "\   'python': ['flake8'],
+        "\   'markdown': ['vale'],
+        "\   'text': ['vale']
+        "\}
 let g:ale_linters = {
         \   'python': ['flake8'],
-        \   'markdown': ['vale'],
-        \   'text': ['vale']
         \}
 let g:ale_linter_aliases = {'pandoc': ['markdown']}
-"let g:ale_fixers = {
-"\   'python': ['yapf'],
-"\}
+let g:ale_fixers = {
+        \   'python': ['yapf'],
+\}
 let g:ale_sign_column_always = 1
 if has("gui_running")
         let g:ale_sign_wrning = '!!'
@@ -450,6 +454,9 @@ autocmd! BufNewFile *.md call LoadTemplate()
 " === Goyo & Limelight ===
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+let g:limelight_paragraph_span = 1
+"let g:limelight_bop = '^\s'
+"let g:limelight_eop = '\ze\n^\s'
 
 
 " === Vim Language Server Client `vim-lsc` ===

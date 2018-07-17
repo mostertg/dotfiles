@@ -1,0 +1,128 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+% -----------------
+% START OF PREAMBLE
+% -----------------
+\documentclass[12pt,a4paper]{scrreprt}
+
+
+% Commands
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% workaround for "tightlist" bug in pandoc .md -> .pdf
+\def\tightlist{}
+
+
+% Packages
+\usepackage{fontspec}
+\usepackage{eurosym}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{upquote}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\usepackage{titlesec}
+\usepackage{longtable,booktabs}
+\usepackage[export]{adjustbox}
+\usepackage{float}
+\usepackage{graphics}
+\graphicspath{{images/}}
+%\graphicspath{{../assets/}}
+\usepackage{grffile}
+\usepackage[normalem]{ulem}
+\usepackage{vmargin}
+\usepackage{fancyhdr}
+\usepackage[setpagesize=false,
+            unicode=false,
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=black]{hyperref}
+
+% Required fix for fancyhdr
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+% Fancy header and footers settings
+\pagestyle{fancy}
+\lhead{$left-header$}
+\rhead{$right-header$}
+
+\defaultfontfeatures{Ligatures=TeX}
+%\setmainfont{Times New Roman}
+\setmainfont{Times}
+% Set formats for each heading level
+\titleformat*{\section}{\fontsize{16}{18}\bfseries\sffamily}
+\titleformat*{\subsection}{\fontsize{14}{16}\bfseries\sffamily}
+\titleformat*{\subsubsection}{\fontsize{12}{14}\bfseries\sffamily}
+
+% Polyglossia settings
+\setmainlanguage{english} % or danish
+\addto\captionsenglish{%
+  \renewcommand{\contentsname}{Table of Contents}
+}
+
+
+% Required for syntax highlighting
+$highlighting-macros$
+
+
+% Don't let images overflow the page
+% Can still explicit set width/height/options for an image
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+
+% Make links footnotes instead of hotlinks
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+% Use less whitespace on chapter pages
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{0.25cm}}
+
+% Avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+
+
+% No paragraph indentation
+% and set space between paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\renewcommand{\baselinestretch}{1.5}
+
+% Fix placement of images
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+        \expandafter\origfigure\expandafter[H]
+} {
+        \endorigfigure
+}
+
+%\KOMAoptions{
+   %listof=totoc,
+   %listof=leveldown,
+%}
+
+
+% -----------------
+%  END OF PREAMBLE
+% -----------------
+\begin{document}
+
+\input{cover}
+%\pagenumbering{roman}
+
+% chapter: 0, section: 1, subsection: 2 etc
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+$body$
+
+\newpage
+%\bibliography{references}
+\bibliography{refs}
+
+\end{document}
